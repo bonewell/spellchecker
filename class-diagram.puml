@@ -1,0 +1,14 @@
+@startuml
+
+interface Language {
+    + detect(text: string): vector<Rule>
+}
+
+interface Rule
+
+Language -> Rule
+
+Language <|.. Russian
+Language <|.. English
+
+@enduml
