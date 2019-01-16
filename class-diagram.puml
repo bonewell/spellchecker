@@ -4,11 +4,16 @@ interface Language {
     + detect(text: string): vector<Rule>
 }
 
-interface Rule
+interface Rule {
+    + correct(text: string&)
+}
 
-Language -> Rule
+Language .> Rule
 
 Language <|.. Russian
 Language <|.. English
+
+Rule <|.. KeepLetterE
+Rule <|.. VowelAfterSizzling
 
 @enduml

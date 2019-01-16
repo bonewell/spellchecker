@@ -24,9 +24,9 @@ English::English(ListOfRules rules): rules_{std::move(rules)}
 {
 }
 
-ListOfRules English::detect(const String& text)
+ListOfRules English::detect(const Word& word)
 {
-    for (auto c: text) {
+    for (auto c: word) {
         if (!IsEnglishLetter(c)) {
             return {};
         }
