@@ -18,7 +18,7 @@ void correct(const ListOfRules& rules, Word& word) {
  * @param text in-out parameter with the word for processing
  */
 void process(Word& word) {
-    for (auto l: GetLanguageList()) {
+    for (const auto& l: GetLanguageList()) {
         auto rules = l->detect(word);
         if (rules.size() != 0) {
             correct(rules, word);

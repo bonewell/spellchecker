@@ -6,7 +6,7 @@
 
 #include "language.h"
 
-using ListOfLanguages = std::vector<std::shared_ptr<Language>>;
+using ListOfLanguages = std::vector<std::unique_ptr<Language>>;
 
 /**
  * @brief GetLanguageList provides list of languages

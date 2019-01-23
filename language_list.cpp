@@ -4,22 +4,22 @@
 #include "russian/russian.h"
 
 namespace {
-std::shared_ptr<Language> make_english()
+std::unique_ptr<Language> make_english()
 {
     ListOfRules rules{
-            std::shared_ptr<Rule>{new KeepLetterE{}}
+        std::make_shared<KeepLetterE>()
     };
 
-    return std::shared_ptr<Language>{new English{rules}};
+    return std::make_unique<English>(rules);
 }
 
-std::shared_ptr<Language> make_russian()
+std::unique_ptr<Language> make_russian()
 {
     ListOfRules rules{
-            std::shared_ptr<Rule>{new VowelAfterSizzling{}}
+        std::make_shared<VowelAfterSizzling>()
     };
 
-    return std::shared_ptr<Language>{new Russian{rules}};
+    return std::make_unique<Russian>(rules);
 }
 }  // namespace
 
