@@ -7,15 +7,21 @@
 using namespace ::testing;
 
 TEST(RussianTest, TextIsRussian) {
-    Russian rus{ListOfRules{std::shared_ptr<Rule>{new MockRule{}}}};
-    auto rules = rus.detect("русский текст");
+    ListOfRules mock_rules;
+    mock_rules.push_back(std::make_unique<MockRule>());
+
+    Russian rus{std::move(mock_rules)};
+    const auto& rules = rus.detect("русский текст");
 
     ASSERT_THAT(rules.size(), Eq(1));
 }
 
 TEST(RussianTest, TextIsNotRussian) {
-    Russian rus{ListOfRules{std::shared_ptr<Rule>{new MockRule{}}}};
-    auto rules = rus.detect("english text");
+    ListOfRules mock_rules;
+    mock_rules.push_back(std::make_unique<MockRule>());
+
+    Russian rus{std::move(mock_rules)};
+    const auto& rules = rus.detect("english text");
 
     ASSERT_THAT(rules.size(), Eq(0));
 }

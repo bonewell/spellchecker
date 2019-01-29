@@ -14,14 +14,14 @@ public:
      * @brief English constructor
      * @param rules list of the rules
      */
-    English(ListOfRules rules);
+    English(ListOfRules&& rules);
 
     /**
      * @brief detect checks whether text is written in English
      * @param word original word
      * @return list of rules for English language
      */
-    ListOfRules detect(const Word& word) override;
+    const ListOfRules& detect(const Word& word) const override;
 
 private:
     ListOfRules rules_;

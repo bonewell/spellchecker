@@ -18,17 +18,19 @@ bool IsEnglishLetter(char letter)
            std::find(std::begin(punctuation),
                      std::end(punctuation), code) != std::end(punctuation);
 }
+
+ListOfRules kEmpty;
 }  // namespace
 
-English::English(ListOfRules rules): rules_{std::move(rules)}
+English::English(ListOfRules&& rules): rules_{std::move(rules)}
 {
 }
 
-ListOfRules English::detect(const Word& word)
+const ListOfRules& English::detect(const Word& word) const
 {
     for (auto c: word) {
         if (!IsEnglishLetter(c)) {
-            return {};
+            return kEmpty;
         }
     }
 

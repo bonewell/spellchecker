@@ -8,7 +8,7 @@
  * @param text in-out parameter with the word to check and correct
  */
 void correct(const ListOfRules& rules, Word& word) {
-    for (auto r: rules) {
+    for (const auto& r: rules) {
         r->correct(word);
     }
 }
@@ -19,8 +19,8 @@ void correct(const ListOfRules& rules, Word& word) {
  */
 void process(Word& word) {
     for (const auto& l: GetLanguageList()) {
-        auto rules = l->detect(word);
-        if (rules.size() != 0) {
+        const auto& rules = l->detect(word);
+        if (!rules.empty()) {
             correct(rules, word);
             return;
         }

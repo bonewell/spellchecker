@@ -7,7 +7,7 @@
 
 class MockRule : public Rule {
  public:
-  MOCK_METHOD1(correct,
+  MOCK_CONST_METHOD1(correct,
       void(Word& word));
 };
 

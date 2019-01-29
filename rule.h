@@ -14,7 +14,7 @@ public:
      * @brief correct does changing of the word according with the rule
      * @param word in-out parameter contains word
      */
-    virtual void correct(Word& word) = 0;
+    virtual void correct(Word& word) const = 0;
     virtual ~Rule() = default;
 };
 

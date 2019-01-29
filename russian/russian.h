@@ -13,14 +13,14 @@ public:
      * @brief Russian constructor
      * @param rules list of the rules
      */
-    Russian(ListOfRules rules);
+    Russian(ListOfRules&& rules);
 
     /**
      * @brief detect checks whether word is written in Russian
      * @param word original word
      * @return list of rules for Russian language
      */
-    ListOfRules detect(const Word& word) override;
+    const ListOfRules &detect(const Word& word) const override;
 
 private:
     ListOfRules rules_;

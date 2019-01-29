@@ -21,7 +21,6 @@ enable_testing()
 
 set(TestSuite ${PROJECT_NAME}Test)
 add_executable(${TestSuite}
-    language_list.cpp
     english/english.cpp
     english/keep_letter_e.cpp
     english/test_english.cpp

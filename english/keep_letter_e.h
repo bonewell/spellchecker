@@ -17,7 +17,7 @@ public:
      * @brief correct does changing of the word according with the rule
      * @param word in-out parameter contains word
      */
-    void correct(Word& word) override;
+    void correct(Word& word) const override;
 };
 
 #endif // FULSUFFIX_H

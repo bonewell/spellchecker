@@ -6,7 +6,7 @@
 
 #include "rule.h"
 
-using ListOfRules = std::vector<std::shared_ptr<Rule>>;
+using ListOfRules = std::vector<std::unique_ptr<Rule>>;
 
 /**
  * @brief The Language class is an interface for a language
@@ -18,7 +18,7 @@ public:
      * @param word original word
      * @return list of rules for correspondent language
      */
-    virtual ListOfRules detect(const Word& word) = 0;
+    virtual const ListOfRules& detect(const Word& word) const = 0;
     virtual ~Language() = default;
 };
 

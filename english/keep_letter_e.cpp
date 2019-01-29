@@ -11,7 +11,7 @@ bool IsMistake(const Word& word, Word::size_type pos) {
 }
 }  // namespace
 
-void KeepLetterE::correct(Word& word)
+void KeepLetterE::correct(Word& word) const
 {
     /*
      * Keep «e» if add «-ous» and «-able» to a word with «-ge» or «-ce»

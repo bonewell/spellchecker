@@ -3,19 +3,21 @@
 #include <regex>
 
 namespace {
-std::regex pattern{R"([ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЁЯЧСМИТЬБЮ
+std::regex kPattern{R"([ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЁЯЧСМИТЬБЮ
                        йцукенгшщзхъфывапролджэёячсмитьбю !?,.-]+)"};
+
+ListOfRules kEmpty;
 }
 
-Russian::Russian(ListOfRules rules): rules_{std::move(rules)}
+Russian::Russian(ListOfRules&& rules): rules_{std::move(rules)}
 {
 }
 
-ListOfRules Russian::detect(const Word& word)
+const ListOfRules& Russian::detect(const Word& word) const
 {
-    if (std::regex_match(word, pattern)) {
+    if (std::regex_match(word, kPattern)) {
         return rules_;
     }
 
-    return {};
+    return kEmpty;
 }

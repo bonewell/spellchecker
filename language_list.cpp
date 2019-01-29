@@ -6,20 +6,18 @@
 namespace {
 std::unique_ptr<Language> make_english()
 {
-    ListOfRules rules{
-        std::make_shared<KeepLetterE>()
-    };
+    ListOfRules rules;
+    rules.push_back(std::make_unique<KeepLetterE>());
 
-    return std::make_unique<English>(rules);
+    return std::make_unique<English>(std::move(rules));
 }
 
 std::unique_ptr<Language> make_russian()
 {
-    ListOfRules rules{
-        std::make_shared<VowelAfterSizzling>()
-    };
+    ListOfRules rules;
+    rules.push_back(std::make_unique<VowelAfterSizzling>());
 
-    return std::make_unique<Russian>(rules);
+    return std::make_unique<Russian>(std::move(rules));
 }
 }  // namespace
 

@@ -21,7 +21,7 @@ std::vector<std::pair<std::regex, std::string>> replacements = {
 };
 }
 
-void VowelAfterSizzling::correct(Word& word)
+void VowelAfterSizzling::correct(Word& word) const
 {
     for (const auto& bind: replacements) {
         word = std::regex_replace(word, bind.first, bind.second);
